@@ -5,7 +5,7 @@ dotenv.config();
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
-
+import connectDB from './config/connectDB.js';
 
 const app = express();
 
@@ -29,6 +29,8 @@ app.get('/', (request, response) =>{
         message: "Server to the backend API! " + PORT 
     })
 });
+
+connectDB(); //connect to MongoDB
 
 app.listen(PORT, ()=>{
     console.log("Server running on port", PORT);
