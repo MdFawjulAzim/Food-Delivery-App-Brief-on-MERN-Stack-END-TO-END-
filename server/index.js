@@ -30,8 +30,8 @@ app.get('/', (request, response) =>{
     })
 });
 
-connectDB(); //connect to MongoDB
-
-app.listen(PORT, ()=>{
-    console.log("Server running on port", PORT);
-})
+connectDB().then(()=>{
+    app.listen(PORT, ()=>{
+        console.log("Server running on port", PORT);
+    })
+}); //connect to MongoDB
