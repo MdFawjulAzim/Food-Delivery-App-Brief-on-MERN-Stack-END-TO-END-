@@ -27,7 +27,7 @@ export async function registerUserController(request, response) {
         }
 
         const salt = await bcryptjs.genSalt(10);
-        const hashPassword = bcryptjs.hash(password, salt);
+        const hashPassword = await bcryptjs.hash(password, salt);
 
         const payload = {
             name,
