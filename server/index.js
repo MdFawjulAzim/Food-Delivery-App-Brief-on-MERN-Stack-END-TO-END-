@@ -5,6 +5,7 @@ dotenv.config();
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import userRouter from './route/user.route.js'
 import connectDB from './config/connectDB.js';
 
 const app = express();
@@ -29,6 +30,8 @@ app.get('/', (request, response) =>{
         message: "Server to the backend API! " + PORT 
     })
 });
+
+app.use('/api/user',userRouter)
 
 connectDB().then(()=>{
     app.listen(PORT, ()=>{
