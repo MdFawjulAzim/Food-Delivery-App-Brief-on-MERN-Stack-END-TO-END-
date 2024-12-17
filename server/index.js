@@ -25,13 +25,15 @@ app.use(helmet({
 const PORT = 8080|| process.env.PORT;
 
 app.get('/', (request, response) =>{
-    //server to client
+    //server to client 
     response.json({
         message: "Server to the backend API! " + PORT 
     })
 });
 
 app.use('/api/user',userRouter)
+
+app.use("/uploads-file",express.static("uploads/avatar"));
 
 connectDB().then(()=>{
     app.listen(PORT, ()=>{

@@ -192,7 +192,7 @@ export async function logoutController(request, response){
         const removeRefreshToken = await UserModel.findByIdAndUpdate(userid,{
             refresh_token : ""
         })
-        
+
         return response.json({
             message : "Logout successfully",
             error : false,
@@ -202,6 +202,41 @@ export async function logoutController(request, response){
         return response.status(500).json({
             message : error.message || error,
             error   :true,
+            success : false
+        })
+    }
+}
+
+//upload user avatar
+export async  function uploadAvatar(request,response){
+    try {
+        const userId = request.userId // auth middlware
+        const image = request.file  // multer middleware
+
+
+        const filePath = image.path.replace(/\\/g, "/").replace("uploads/avatar/", ""); // Remove unwanted parts
+        const fileURL = `${process.env.BACKEND_BASE_URL}/uploads-file/${filePath}`;
+
+        
+        
+        const updateUser = await UserModel.findByIdAndUpdate(userId,{
+            avatar : fileURL
+        })
+
+        return response.json({
+            message : "upload profile",
+            success : true,
+            error : false,
+            data : {
+                _id : userId,
+                avatar :fileURL
+            }
+        })
+
+    } catch (error) {
+        return response.status(500).json({
+            message : error.message || error,
+            error : true,
             success : false
         })
     }
