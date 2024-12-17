@@ -64,3 +64,36 @@ export async function registerUserController(request, response) {
         })
     }
 }
+
+
+export async function verifyEmailController(request, response){
+    try{
+        const {code} = request.body;
+        
+        const user = await UserModel.findOne({_id : code});
+
+        if(!user){
+            return response.json({
+                message : "Invalid or expired link",
+                error :true,
+                success : false
+            })
+        }
+
+        const updateUser = await UserModel.updateOne({ _id : code },{ verify_email:true })
+
+        return response.json({
+            message : "Email verified successfully",
+            error : false,
+            success : true,
+            data : updateUser
+        })
+        
+    }catch(error){
+        return response.status(500).json({
+            message : error.message || error,
+            error   :true,
+            success : false
+        })
+    }
+}
