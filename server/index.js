@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import userRouter from './route/user.route.js';
+import categoryRouter from './route/category.route.js';
 import connectDB from './config/connectDB.js';
 
 const app = express();
@@ -31,7 +32,8 @@ app.get('/', (request, response) =>{
     })
 });
 
-app.use('/api/user',userRouter)
+app.use('/api/user',userRouter);
+app.use("/api/category",categoryRouter)
 
 app.use("/uploads-file",express.static("uploads/avatar"));
 
