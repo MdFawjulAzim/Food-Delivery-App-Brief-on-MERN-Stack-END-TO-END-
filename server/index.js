@@ -35,7 +35,7 @@ app.get('/', (request, response) =>{
 app.use('/api/user',userRouter);
 app.use("/api/category",categoryRouter)
 
-app.use("/uploads-file",express.static("uploads/avatar"));
+// app.use("/uploads-file",express.static("uploads/avatar"));
 
 connectDB().then(()=>{
     app.listen(PORT, ()=>{

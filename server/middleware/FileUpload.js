@@ -10,5 +10,5 @@ const fileStorageEngine = multer.diskStorage({
 });
 
 
-let upload = multer({ storage: fileStorageEngine });
-export default upload;
+let uploads = multer({ storage: fileStorageEngine });
+export default uploads;
