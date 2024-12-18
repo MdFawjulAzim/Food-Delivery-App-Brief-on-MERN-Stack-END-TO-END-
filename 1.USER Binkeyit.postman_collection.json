@@ -70,7 +70,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"mdfawjulazim61@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"email\":\"mdfawjulazim61@gmail.com\",\r\n    \"password\":\"654321\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -209,7 +209,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"mdfawjulazim617@gmail.com\",\r\n    \"otp\": \"167594\"\r\n}",
+							"raw": "{\r\n    \"email\":\"mdfawjulazim61@gmail.com\",\r\n    \"otp\": \"167594\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -236,7 +236,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"mdfawjulazim617@gmail.com\",\r\n    \"newPassword\": \"654321\",\r\n    \"confirmPassword\": \"654321\"\r\n}",
+							"raw": "{\r\n    \"email\":\"mdfawjulazim617@gmail.com\",\r\n    \"newPassword\": \"123456\",\r\n    \"confirmPassword\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -269,6 +269,24 @@
 							"path": [
 								"user",
 								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/user/user-details",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"user-details"
 							]
 						}
 					},
